@@ -5,9 +5,9 @@ This project aims to analyse and generate insight into the infectious disease ca
 ### Project Questions:
 * What are the most common diseases in terms of rate (between 2001-2022)?
 * What is the trend of mean rates of diseases by year?
-* What are the trends of each disease over the years?
-* How is the distribution of incidence of diseases by gender?
-* What is the distribution of diseases by county and year?
+* What are the trends of each disease (top 10) over the years?
+* How is the distribution of incidence of diseases (top 10) by gender?
+* What is the distribution of diseases by county (top 20) and year?
 
 ## Dataset & Methods
 
@@ -26,7 +26,7 @@ The dataset was taken from the official website of [Data.gov](https://catalog.da
 ---
 ---
 ### Methods & Steps
-Below are the general steps taken for the data analysis. A few example codes are given to have an idea of what has been done. To look at the full codes, you can refer to the [notebook](aaa).
+Below are the general steps taken for the data analysis. A few example codes are given to have an idea of what has been done. To look at the full codes, you can refer to the [notebook](https://github.com/azizbarank/California-Infectious-Diseases-Analysis/blob/main/california_disease_analysis.ipynb).
 1. Importing the necessary packages:
 
 ```python
@@ -89,7 +89,31 @@ df.value_counts()
 |Lyme Disease	|0.503697|
 |Legionellosis	|0.400315|
 |Vibrio Infection (non-Cholera)	|0.380777|
+
+The top 3 diseases (i.e., Campylobacteriosis, Coccidioidomycosis, Salmonellosis) seem to be occuring much more frequently than the others, with more than 10 mean rate in general.
+
 2. What is the trend of mean rates of diseases by year?
+![Trends of Mean Rates of Diseases](https://github.com/azizbarank/California-Infectious-Diseases-Analysis/blob/main/images/mean_rates_year.png)
+
+As can be seen from the plot, between the years 2002-2014, the mean rate tends to be not changing a lot. However, after 2015 until 2019, there seems to be a surge, which is followed by a brief decrease until 2021. Even though I searched for the possible causes for the surge between 2015-2021, I couldn@t find a reliable resource. It is known that there were some specific cases of pandemie in the U.S. between these years (e.g., Zika virus). Therefore, it might be that diseases like that might have increases the mean rate for that specific time period. The other interesting thing is the decrease after 2019, which was the beginning year of COVID-19. For this, it might be the case that since a lot of health care facilities were already busy with dealing with COVID-19, the other diseases were simply neglected and not reported that much.
+
 3. What are the trends of top 10 disease over the years?
+![Trends of Top 10 Diseases over the years](https://github.com/azizbarank/California-Infectious-Diseases-Analysis/blob/main/images/disease_trend.png)
+
+In a similar way to the mean rates of all diseases above, what remarkable is that nearly all of the top 10 diseases tend to surge from 2015 onwards.
+
 4. How is the distribution of incidence of diseases by gender?
+![Distribution of incidence of diseases by gender](https://github.com/azizbarank/California-Infectious-Diseases-Analysis/blob/main/images/disease_gender.png)
+
+In general, males tend to be affected more then females by most diseases, except; Salmonellosis and Shiga toxin-producing E. coli (STEC) without HUS. There have been a couple of studies done by National Institute of Health (NIH). For instance, when it comes to Salmonellosis, Reller et al. (2007)[^1] found out that the relative burden of salmonellosis in women has increased and that one of the reasons for this has something to do woth product consumption. In other words, what they found out was that food, especially fruit and vegetable consumption is oen of the reasons for the occurence of this disease and since women tend to consume these more than men, this disease tends to occur more frequently among them.
+
+For the STEC, Tack et al. (2021)[^2] found out that more women are affected than men when it comes to foodborne (especially vegetable row crops and fruits), environmental and other unknown transmission modes.
+
 5. What is the distribution of diseases by county and year?
+![Distribution of Diseases by County and Years](https://github.com/azizbarank/California-Infectious-Diseases-Analysis/blob/main/images/disease_county.png)
+As can be seen from the heatmap above, the top 3 counties with the highest rates of diseases are Kern, Kings and San Francisco.
+
+
+## References:
+[^1]: Reller, M. E., Tauxe, R. V., Kalish, L. A., & Mølbak, K. (2007). Excess salmonellosis in women in the United States: 1968–2000. *Epidemiology and Infection*, *136*(8), 1109–1117. [https://doi.org/10.1017/s0950268807009594](https://doi.org/10.1017/s0950268807009594)
+[^2]: Tack, D. M., Kisselburgh, H. M., Richardson, L. C., Geissler, A., Griffin, P. M., Payne, D. C., & Gleason, B. L. (2021). Shiga Toxin-Producing Escherichia coli Outbreaks in the United States, 2010–2017. *Microorganisms*, *9*(7), 1529. [https://doi.org/10.3390/microorganisms9071529](https://doi.org/10.3390/microorganisms9071529)
